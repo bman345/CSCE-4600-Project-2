@@ -9,7 +9,7 @@ var aliases = make(map[string]string)
 
 func Alias(args ...string) error {
 	if len(args) == 0 {
-		// This will print current list of aliases
+		// This will print the current list of aliases
 		for alias, cmd := range aliases {
 			fmt.Printf("%s='%s'\n", alias, cmd)
 		}
