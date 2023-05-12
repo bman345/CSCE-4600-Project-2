@@ -8,6 +8,7 @@ import (
 	"os/exec"
 	"os/user"
 	"strings"
+	
 
 	"github.com/jh125486/CSCE4600/Project2/builtins"
 )
@@ -84,6 +85,8 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		return builtins.Alias(args...)
 	case "repeat":
 		return builtins.Repeat(w, args...)
+	case "type":
+		return builtins.Type(args...)
 	case "exit":
 		exit <- struct{}{}
 		return nil
