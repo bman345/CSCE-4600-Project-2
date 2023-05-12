@@ -83,6 +83,8 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		return builtins.Echo(args...)
 	case "alias":
 		return builtins.Alias(args...)
+	case "pwd":
+		return builtins.Pwd(args...)
 	case "repeat":
 		return builtins.Repeat(w, args...)
 	case "type":
@@ -91,10 +93,9 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		exit <- struct{}{}
 		return nil
 	}
-	
 
 	return executeCommand(name, args...)
-	
+
 }
 
 func executeCommand(name string, arg ...string) error {
