@@ -21,6 +21,8 @@ func Check(w io.Writer, nameR string, argsR ...string) error {
 		return Echo(argsR...)
 	case "alias":
 		return Alias(argsR...)
+	case "type":
+		return Type(argsR...)
 	}
 	return executeCommand(nameR, argsR...)
 }
